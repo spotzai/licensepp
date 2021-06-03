@@ -116,8 +116,17 @@ extern "C"
 #endif
     void*
     issuing_authority_create(const char* id, const char* name,
-                             const char* keypair, unsigned int max_validity,
-                             int active);
+                             const char* private_key, const char* public_key,
+                             unsigned int max_validity, int active);
+
+#ifdef __cplusplus
+extern "C"
+#endif
+    void*
+    issuing_authority_create_with_key_pair(const char* id, const char* name,
+                                           const char* key_pair,
+                                           unsigned int max_validity,
+                                           int active);
 
 #ifdef __cplusplus
 extern "C"

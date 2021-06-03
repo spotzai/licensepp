@@ -152,13 +152,25 @@ extern "C" const char* license_get_additional_payload(const void* license) {
 
 // Issuing Authority
 extern "C" void* issuing_authority_create(const char* id, const char* name,
-                                          const char* keypair,
+                                          const char* private_key,
+                                          const char* public_key,
                                           unsigned int max_validity,
                                           int active) {
   std::string _id(id);
   std::string _name(name);
-  std::string _keypair(keypair);
-  return new ::licensepp::IssuingAuthority(_id, _name, _keypair, max_validity,
+  std::string _private_key(private_key);
+  std::string _public_key(public_key);
+  return new ::licensepp::IssuingAuthority(_id, _name, _private_key,
+                                           _public_key, max_validity, active);
+}
+
+extern "C" void* issuing_authority_create_with_key_pair(
+    const char* id, const char* name, const char* key_pair,
+    unsigned int max_validity, int active) {
+  std::string _id(id);
+  std::string _name(name);
+  std::string _key_pair(key_pair);
+  return new ::licensepp::IssuingAuthority(_id, _name, _key_pair, max_validity,
                                            active);
 }
 
