@@ -219,7 +219,9 @@ extern "C"
 typedef struct IssuingAuthorityParameters {
   const char* authority_id;
   const char* authority_name;
-  const char* keypair;
+  const char* key_pair;
+  const char* private_key;
+  const char* public_key;
   unsigned int max_validity;
   int active;
   struct IssuingAuthorityParameters* next;

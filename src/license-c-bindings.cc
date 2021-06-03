@@ -28,9 +28,15 @@ class CLicenseKeysRegister {
 
     auto p = issuing_authority_parameters;
     while (p) {
-      authorities->emplace_back(::licensepp::IssuingAuthority(
-          p->authority_id, p->authority_name, p->keypair, p->max_validity,
-          p->active));
+      if (p->key_pair) {
+        authorities->emplace_back(::licensepp::IssuingAuthority(
+            p->authority_id, p->authority_name, p->key_pair, p->max_validity,
+            p->active));
+      } else {
+        authorities->emplace_back(::licensepp::IssuingAuthority(
+            p->authority_id, p->authority_name, p->private_key, p->public_key,
+            p->max_validity, p->active));
+      }
       p = p->next;
     }
 
