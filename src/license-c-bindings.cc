@@ -67,7 +67,7 @@ extern "C" void license_key_register_init(
 }
 
 // License
-extern "C" void* license_create() { return new ::licensepp::License(); }
+extern "C" void* license_create(void) { return new ::licensepp::License(); }
 
 extern "C" void license_delete(void* license) {
   ::licensepp::License* p = (::licensepp::License*)license;
@@ -244,7 +244,7 @@ extern "C" int issuing_authority_validate(const void* issuing_authority,
 }
 
 // License Manager
-extern "C" void* license_manager_create() {
+extern "C" void* license_manager_create(void) {
   return new ::licensepp::BaseLicenseManager<
       ::licensepp::CLicenseKeysRegister>();
 }

@@ -8,7 +8,7 @@
 extern "C"
 #endif
     void*
-    license_create();
+    license_create(void);
 
 #ifdef __cplusplus
 extern "C"
@@ -182,7 +182,7 @@ extern "C"
 extern "C"
 #endif
     void*
-    license_manager_create();
+    license_manager_create(void);
 
 #ifdef __cplusplus
 extern "C"
